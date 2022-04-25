@@ -1,0 +1,176 @@
+﻿@model Kiru8th.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    ViewBag.MemberPicName = Model.MemberPicName;
+    ViewBag.url = Request.Url;
+    ViewBag.MemberName = Model.Name;
+}
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">切切會員列表</h5>
+                    <p class="m-b-0">一般會員</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","CheckMembers")">切切會員列表</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@ViewBag.url">@(ViewBag.MemberName)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+    <div class="card">
+        <div class="card-header">
+            <h5>會員詳細</h5>
+        </div>
+        <div class="card-header-right">
+            <div class="card-block accordion-block">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingOne">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.UserName)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseOne"
+                               aria-expanded="true" aria-controls="collapseOne">
+                                @Html.DisplayFor(model => model.UserName)
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p> @Html.DisplayFor(model => model.UserName)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingTwo">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.Name)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseTwo"
+                               aria-expanded="true" aria-controls="collapseTwo">
+                                @Html.DisplayFor(model => model.Name)
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p> @Html.DisplayFor(model => model.Name)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingThree">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.Email)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseThree"
+                               aria-expanded="true" aria-controls="collapseThree">
+                                @Html.DisplayFor(model => model.Email)
+                            </a>
+                            
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p> @Html.DisplayFor(model => model.Email)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingFour">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.Isidentify)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseFour"
+                               aria-expanded="true" aria-controls="collapseFour">
+                                @Html.DisplayFor(model => model.Isidentify)
+                            </a>
+                            
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p> @Html.DisplayFor(model => model.Isidentify)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingFive">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.initDate)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseFive"
+                               aria-expanded="true" aria-controls="collapseFive">
+                                @Html.DisplayFor(model => model.initDate)
+                            </a>
+                           
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p> @Html.DisplayFor(model => model.initDate)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingSix">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.MemberPicName)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseSix"
+                               aria-expanded="true" aria-controls="collapseSix">
+                               @Html.DisplayFor(model => model.MemberPicName)
+                            </a>
+                            
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p>
+                                    <img src="~/Pic/@ViewBag.MemberPicName" alt="title image" class="img-radius img-40 align-top m-r-15">
+                                    @*@Html.DisplayFor(model => model.MemberPicName)*@
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-panel">
+                        <div class="accordion-heading" role="tab" id="headingEight">
+                            <h3 class="card-title accordion-title">@Html.DisplayNameFor(model => model.Introduction)</h3>
+                            <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseEight"
+                               aria-expanded="true" aria-controls="collapseEight">
+                                @Html.DisplayFor(model => model.Introduction)
+                            </a>
+                            
+                        </div>
+                        <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelleby="headingOne">
+                            <div class="accordion-content accordion-desc">
+                                <p> @Html.DisplayFor(model => model.Introduction)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+          
+                <p>
+                    <a href="@Url.Action("Index")"class="btn btn-info waves-effect waves-light">回到會員列表</a>
+                    @*@Html.ActionLink("Edit", "Edit", new {id = Model.ID}) |
+                @Html.ActionLink("Back to List", "Index")*@
+                </p>
+        </div>
+      
+    </div>
+
+</div>
+</div>
+</div>

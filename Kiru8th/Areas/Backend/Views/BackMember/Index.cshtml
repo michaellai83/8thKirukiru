@@ -1,0 +1,248 @@
+﻿@using Kiru8th.Models
+@using Kiru8th.Models.EunData
+@model IEnumerable<Kiru8th.Models.Article>
+
+@{
+    ViewBag.Title = "Back";
+    List<Article> kiruLove = ViewBag.kiruLove;
+    List<MemberOrderNum> orderNums = ViewBag.orderList;
+    List<KiruCollectNum> kiruCollectNums = ViewBag.kiruCollects;
+}
+
+
+<div class="pcoded-content">
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">後台管理員系統</h5>
+                        <p class="m-b-0">歡迎來到管理員系統</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index")">首頁</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+    <div class="pcoded-inner-content">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- Page-body start -->
+                <div class="page-body">
+                    <div class="row">
+                        <!-- Material statustic card start -->
+                        <div class="col-xl-6 col-md-12">
+                            <div class="card mat-stat-card">
+                                <div class="card-block">
+                                    <div class="row align-items-center b-b-default">
+                                        <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="far fa-user text-c-purple f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>@(ViewBag.memberCount)位</h5>
+                                                    <p class="text-muted m-b-0">註冊人數</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 p-b-20 p-t-20">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="far fa-user text-c-purple f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>@(ViewBag.memberIsCheckEmailNum)位</h5>
+                                                    <p class="text-muted m-b-0">已認證信箱的會員</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="far fa-file-alt text-c-red f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>@(ViewBag.kiruNum)篇</h5>
+                                                    <p class="text-muted m-b-0">切切文章數目</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="far fa-file-alt text-c-red f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>@(ViewBag.NormalArticlesNum)篇</h5>
+                                                    <p class="text-muted m-b-0">一般文章數目</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-12">
+                            <div class="card mat-stat-card">
+                                <div class="card-block">
+                                    <div class="row align-items-center b-b-default">
+                                        <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="fas fa-share-alt text-c-purple f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>1000</h5>
+                                                    <p class="text-muted m-b-0">Share</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 p-b-20 p-t-20">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="fas fa-sitemap text-c-green f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>@(ViewBag.OrderCount)筆</h5>
+                                                    <p class="text-muted m-b-0">全部訂閱筆數</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="fas fa-signal text-c-red f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>350</h5>
+                                                    <p class="text-muted m-b-0">Returns</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 p-b-20 p-t-20">
+                                            <div class="row align-items-center text-center">
+                                                <div class="col-4 p-r-0">
+                                                    <i class="fas fa-wifi text-c-blue f-24"></i>
+                                                </div>
+                                                <div class="col-8 p-l-0">
+                                                    <h5>100%</h5>
+                                                    <p class="text-muted m-b-0">Connections</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Material statustic card end -->
+                        <div class="col-xl-6 col-md-12">
+                            <div class="card table-card">
+                                <div class="card-header">
+                                    <h5>熱門作者前四名</h5>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                            <li><i class="fa fa-window-maximize full-card"></i></li>
+                                            <li><i class="fa fa-minus minimize-card"></i></li>
+                                            <li><i class="fa fa-refresh reload-card"></i></li>
+                                            <li><i class="fa fa-trash close-card"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover m-b-0 without-header">
+                                            <tbody>
+                                                @foreach (var item in orderNums)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-inline-block align-middle">
+                                                                <img src="~/Pic/@item.AuthorPic" alt="title image" class="img-radius img-40 align-top m-r-15">
+                                                                <div class="d-inline-block">
+                                                                    <h6>@item.Author</h6>
+                                                                    <p class="text-muted m-b-0">@item.Username</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <h6 class="f-w-700">訂閱人數@(item.Num)<i class="fas fa-level-down-alt text-c-red m-l-10"></i></h6>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-12">
+                            <div class="card table-card">
+                                <div class="card-header">
+                                    <h5>收藏最多的切切前四名</h5>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                            <li><i class="fa fa-window-maximize full-card"></i></li>
+                                            <li><i class="fa fa-minus minimize-card"></i></li>
+                                            <li><i class="fa fa-refresh reload-card"></i></li>
+                                            <li><i class="fa fa-trash close-card"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover m-b-0 without-header">
+                                            <tbody>
+                                                @foreach (var item in kiruCollectNums)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-inline-block align-middle">
+                                                                <img src="~/Pic/@item.artTitlePic" alt="title image" width="80px">
+                                                                <div class="d-inline-block">
+                                                                    <h6>@item.artTitle</h6>
+                                                                    <p class="text-muted m-b-0">@Html.Raw(item.artInfo)</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <h6 class="f-w-700">@item.artLog</h6>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

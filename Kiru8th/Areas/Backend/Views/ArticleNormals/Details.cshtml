@@ -1,0 +1,146 @@
+﻿@model Kiru8th.Models.ArticleNormal
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    ViewBag.artTitle = Model.Title;
+    ViewBag.Info = Model.Introduction;
+    ViewBag.Main = Model.Main;
+    ViewBag.url = Request.Url;
+}
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">一般文章列表</h5>
+                    <p class="m-b-0">@ViewBag.artTitle</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","ArticleNormals")">一般文章列表</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@ViewBag.url">@ViewBag.artTitle</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+<div class="row">
+<div class="card">
+<div class="card-block">
+<div class="row">
+<div>
+
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
+    <hr />
+    <dl class="dl-horizontal row">
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Articlecategory.Name)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.Articlecategory.Name)
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Member.UserName)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.Member.UserName)
+        </dd>
+
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Introduction)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.Raw(ViewBag.Info)
+            @*@Html.Raw(@Html.DisplayFor(model => model.Introduction))*@
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Main)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.Raw(ViewBag.Main)
+            @*@Html.Raw(@Html.DisplayFor(model => model.Main))*@
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.IsFree)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.IsFree)
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.IsPush)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.IsPush)
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.InitDate)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.InitDate)
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Lovecount)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.Lovecount)
+        </dd>
+
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.IsManangerStop)
+        </dt>
+
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.IsManangerStop)
+        </dd>
+
+    </dl>
+</div>
+
+</div>
+                        
+</div>
+    <p>
+        <a href="@Url.Action("Index")"class="btn btn-inverse waves-effect waves-light">回到一般文章列表</a>
+
+        @*@Html.ActionLink("Edit", "Edit", new {id = Model.ID}) |
+        @Html.ActionLink("Back to List", "Index")*@
+    </p>
+</div>
+</div>
+
+</div>
+</div>
+</div>

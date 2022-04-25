@@ -1,0 +1,106 @@
+﻿@model Kiru8th.Models.Backmember
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    ViewBag.Name = Model.Name;
+    ViewBag.url = Request.Url;
+    ViewBag.UserName = Model.Username;
+    ViewBag.Pic = Model.Photo;
+}
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">管理者帳號列表</h5>
+                    <p class="m-b-0">管理者帳號:@(ViewBag.UserName)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Articles")">管理者帳號列表</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@ViewBag.url">@(ViewBag.Name)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+
+    <div class="card">
+        <div class="card-block">
+            <div>
+                <h4>管理者帳號:@Html.DisplayFor(model => model.Username)</h4>
+                <hr />
+                <dl class="dl-horizontal row">
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.Photo)
+                    </dt>
+
+                    <dd class="col-sm-6">
+                        @*@Html.DisplayFor(model => model.Photo)*@
+                        <img src="~/images/@ViewBag.Pic" alt="title image" class="img-radius img-100 align-top m-r-15">
+                    </dd>
+
+                    <dt class="col-sm-6">
+                        @Html.DisplayNameFor(model => model.IniDateTime)
+                    </dt>
+
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.IniDateTime)
+                    </dd>
+
+                </dl>
+
+            </div>
+
+        </div>
+       
+    </div>
+    <p>
+        <a href="@Url.Action("Edit",new{id = Model.ID})" class="btn waves-effect waves-light btn-primary btn-outline-primary">編輯</a>
+        <a href="@Url.Action("Index")" class="btn btn-inverse waves-effect waves-light">回到會員列表</a>
+        @*@Html.ActionLink("Edit", "Edit", new {id = Model.ID}) |
+            @Html.ActionLink("Back to List", "Index")*@
+    </p>
+
+
+</div>
+</div>
+
+</div>
+</div>
+</div>

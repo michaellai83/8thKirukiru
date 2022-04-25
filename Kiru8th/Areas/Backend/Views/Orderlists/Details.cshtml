@@ -1,0 +1,118 @@
+﻿@model Kiru8th.Models.Orderlist
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    ViewBag.url = Request.Url;
+    ViewBag.OrderTitle = Model.Ordernumber;
+}
+
+<div class="pcoded-content">
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">切切會員訂單列表</h5>
+                        <p class="m-b-0">訂單列表</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Orderlists")">切切會員訂單列表</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                                <a href="@ViewBag.url">訂單:@(ViewBag.OrderTitle)</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+    <div class="pcoded-inner-content">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row">
+                                    <div>
+                                        <h4>詳細訂單資料</h4>
+                                        <hr />
+                                        <dl class="dl-horizontal row">
+                                            <dt class="col-sm-6">
+                                                @Html.DisplayNameFor(model => model.Members.UserName)
+                                            </dt>
+
+                                            <dd class="col-sm-6">
+                                                @Html.DisplayFor(model => model.Members.UserName)
+                                            </dd>
+
+                                            <dt class="col-sm-6">
+                                                @Html.DisplayNameFor(model => model.Ordernumber)
+                                            </dt>
+
+                                            <dd class="col-sm-6">
+                                                @Html.DisplayFor(model => model.Ordernumber)
+                                            </dd>
+
+                                            <dt class="col-sm-6">
+                                                @Html.DisplayNameFor(model => model.AuthorName)
+                                            </dt>
+
+                                            <dd class="col-sm-6">
+                                                @Html.DisplayFor(model => model.AuthorName)
+                                            </dd>
+
+                                            <dt class="col-sm-6">
+                                                @Html.DisplayNameFor(model => model.Amount)
+                                            </dt>
+
+                                            <dd class="col-sm-6">
+                                                @Html.DisplayFor(model => model.Amount)
+                                            </dd>
+
+                                            <dt class="col-sm-6">
+                                                @Html.DisplayNameFor(model => model.Issuccess)
+                                            </dt>
+
+                                            <dd class="col-sm-6">
+                                                @Html.DisplayFor(model => model.Issuccess)
+                                            </dd>
+
+                                            <dt class="col-sm-6">
+                                                @Html.DisplayNameFor(model => model.InitDateTime)
+                                            </dt>
+
+                                            <dd class="col-sm-6">
+                                                @Html.DisplayFor(model => model.InitDateTime)
+                                            </dd>
+
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                <a href="@Url.Action("Index")"class="btn btn-inverse waves-effect waves-light">回到訂閱列表</a>
+
+                                @*@Html.ActionLink("Back to List", "Index")*@
+                            </p>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

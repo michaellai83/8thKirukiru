@@ -1,0 +1,107 @@
+﻿@model Kiru8th.Models.BackQA
+
+@{
+    ViewBag.Title = "DetailQA";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    ViewBag.QaTitle = Model.Title;
+}
+<div class="pcoded-content">
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">QA</h5>
+                        <p class="m-b-0">@ViewBag.QaTitle</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("ShowAllQA")">QA列表</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("DetailQA",new { qaId = Model.ID})">@ViewBag.QaTitle </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+    <div class="page-wrapper">
+        <!-- Page-body start -->
+        <div class="page-body">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h5>QA</h5>
+                    </div>
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                            <li><i class="fa fa-window-maximize full-card"></i></li>
+                            <li><i class="fa fa-minus minimize-card"></i></li>
+                            <li><i class="fa fa-refresh reload-card"></i></li>
+                            <li><i class="fa fa-trash close-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <dl class="dl-horizontal row">
+                            <dt class="col-sm-6">
+                                @Html.DisplayNameFor(model => model.Title)
+                            </dt>
+
+                            <dd class="col-sm-6">
+                                @Html.DisplayFor(model => model.Title)
+                            </dd>
+
+                            <dt class="col-sm-6">
+                                @Html.DisplayNameFor(model => model.Answer)
+                            </dt>
+
+                            <dd class="col-sm-6">
+                                @Html.DisplayFor(model => model.Answer)
+                            </dd>
+
+                            <dt class="col-sm-6">
+                                @Html.DisplayNameFor(model => model.InitDateTime)
+                            </dt>
+
+                            <dd class="col-sm-6">
+                                @Html.DisplayFor(model => model.InitDateTime)
+                            </dd>
+
+
+
+                        </dl>
+                    </div>
+                </div>
+               
+            </div>
+            <p>
+
+                @*@Html.ActionLink("編輯", "EditQA", new { qaId = Model.ID }) |
+                @Html.ActionLink("回到QA列表", "ShowAllQA")*@
+                <a href="@Url.Action("EditQA")" class="btn btn-primary waves-effect waves-light">編輯</a>
+                <a href="@Url.Action("ShowAllQA")" class="btn btn-inverse waves-effect waves-light">回到QA列表</a>
+
+                @*@Html.ActionLink("Back to List", "Index")*@
+            </p>
+        </div>
+        <!-- Page-body end -->
+    </div>
+</div>
+<!-- Warning Section Starts -->
+
+    </div>
+</div>

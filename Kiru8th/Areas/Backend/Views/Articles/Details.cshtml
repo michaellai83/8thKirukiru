@@ -1,0 +1,232 @@
+﻿@using Kiru8th.Models
+@model Kiru8th.Models.Article
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    List<Firstmission> firstmissions = Model.Firstmissions.ToList();
+    List<ArticleMain> articleMains = Model.ArticleMains.ToList();
+    List<FinalMission> finalMissions = Model.FinalMissions.ToList();
+    ViewBag.artTitle = Model.Title;
+    ViewBag.Info =Model.Introduction;
+    ViewBag.FinText = Model.FinalText;
+    ViewBag.url = Request.Url;
+}
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">切切文章列表</h5>
+                    <p class="m-b-0">切切文章:@(ViewBag.artTitle)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Articles")">切切文章列表</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@ViewBag.url">@(ViewBag.artTitle)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+<div class="row">
+    <div class="card">
+        <div class="card-block">
+            <div class="row">
+
+                <div>
+                    <h4>@Html.DisplayFor(model => model.Title)</h4>
+                    <hr />
+                    <dl class="dl-horizontal row">
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Articlecategory.Name)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Articlecategory.Name)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Member.UserName)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Member.UserName)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.FirstPicName)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            <img src="~/Pic/@Html.DisplayFor(model => model.FirstPicName)" width="200px" />
+                        </dd>
+
+                        @*<dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>*@
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Introduction)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.Raw(@ViewBag.Info)
+                        </dd>
+                        @{
+                            foreach (var item in firstmissions)
+                            {
+                                <dt class="col-sm-3">
+                                    <p>前置任務圖片</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    <img src="~/Pic/@item.PicName" width="200px" />
+
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <p>前置任務標題</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    @item.FirstItem
+
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <p>前置任務內容</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    @Html.Raw(@item.ItemNumber)
+                                </dd>
+        }
+                            foreach (var item in articleMains)
+                            {
+                                <dt class="col-sm-3">
+                                    <p>切切照片</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    <img src="~/Pic/@item.PicName" width="200px" />
+
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <p>切切內容</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    @Html.Raw(@item.Main)
+                                </dd>
+    }
+                        }
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.IsFree)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.IsFree)
+                        </dd>
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.IsPush)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.IsPush)
+                        </dd>
+
+
+
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Lovecount)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Lovecount)
+                        </dd>
+                        @{
+        foreach (var item in finalMissions)
+        {
+                                <dt class="col-sm-3">
+                                    <p>附屬任務標題</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    @item.Title
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <p>附屬任務內容</p>
+                                </dt>
+
+                                <dd class="col-sm-9">
+                                    @item.Main
+                                </dd>
+                            }
+                        }
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.FinalText)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @*@Html.Raw(@Html.DisplayFor(model => model.FinalText))*@
+                            @Html.Raw(@ViewBag.FinText)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.InitDate)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.InitDate)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.IsManangerStop)
+                        </dt>
+
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.IsManangerStop)
+                        </dd>
+
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+    <p>
+        <a href="@Url.Action("Index")"class="btn btn-inverse waves-effect waves-light">回到切切列表</a>
+
+        @*@Html.ActionLink("Back to List", "Index")*@
+    </p>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>

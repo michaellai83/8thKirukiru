@@ -1,0 +1,95 @@
+﻿@using Kiru8th.Models
+@model Kiru8th.Models.BackArticle
+@{
+    ViewBag.Title = "DetailNewArticle";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+    ViewBag.url = Request.Url;
+   
+}
+
+
+@helper ArticleResult(BackArticle backArticle)
+{
+    var artId = backArticle.ID;
+    var imgUrl = Url.Content("~/images/" + backArticle.Titlepic);
+    var main = backArticle.Main;
+    ViewBag.ArtTitle = backArticle.Title;
+
+}
+<div class="pcoded-content">
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">精選文章列表</h5>
+                        <p class="m-b-0">精選文章</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("ShowNewArticle")">精選文章列表</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@ViewBag.url">@(ViewBag.ArtTitle)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+    <div class="pcoded-inner-content">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="card">
+                <div class="card-header">
+                    <h5>@ViewData["artTitle"].ToString()</h5>
+                </div>
+                <div class="card-block">
+                    <form>
+                        @*<div class="form-group row">
+                                <label class="col-sm-2 col-form-label">標題</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="" readonly>
+                                </div>
+                            </div>*@
+                        <div class="form-group row">
+                            <a href="@Url.Action("EditArticle")?artId=@ViewData["artID"]" class="btn btn-info waves-effect waves-light">編輯文章</a>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">封面圖片</label>
+                            <div class="col-sm-10">
+                                <img src="@ViewData["artTitlePhoto"].ToString()" width="200px" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">內容</label>
+                            <div class="col-sm-10">
+                                @*@Html.TextArea("ContentText", @ViewData["artMain"].ToString(), new { id = "ContentText", @name = "ContentText" })*@
+                                @Html.Raw(ViewData["artMain"])
+                            </div>
+                        </div>
+                        <div>
+                            <a href="@Url.Action("DeleteArticle")?artId=@ViewData["artID"].ToString()" class="btn btn-danger waves-effect waves-light" onclick="return confirm('確定要刪除此文章嗎?')">刪除文章</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" language="javascript">
+        var editor = CKEDITOR.editor.replace('ContentText', { skin: 'kama', width: '750px' });
+    </script>
+}

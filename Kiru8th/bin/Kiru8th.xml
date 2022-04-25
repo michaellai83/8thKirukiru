@@ -1,0 +1,2596 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kiru8th</name>
+    </assembly>
+    <members>
+        <member name="T:Kiru8th.Controllers.ArticleController">
+            <summary>
+            切切的文章
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.AddArticle(Kiru8th.PutData.DataArticle)">
+            <summary>
+            添加切切文章
+            </summary>
+            <param name="dataArticle ">切切前端傳進來資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.AddMessage(System.String,System.Int32)">
+            <summary>
+            訪客留言
+            </summary>
+            <param name="Main">留言內容</param>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetAllMessage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            取得此篇文章所有留言資料
+            </summary>
+            <param name="artId">文章Id</param>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.Getmessage(System.Int32)">
+            <summary>
+            取得留言資料(單筆)(含大頭貼)
+            </summary>
+            <param name="messageId">留言的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.AddReMessage(System.Int32,System.String)">
+            <summary>
+            回覆留言
+            </summary>
+            <param name="messageId">留言的ID</param>
+            <param name="main">留言內容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetReMessage(System.Int32)">
+            <summary>
+            取得留言回覆的內容
+            </summary>
+            <param name="messageId">留言的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetArctile(System.Int32)">
+            <summary>
+            取得文章資料
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.EditArticle(Kiru8th.PutData.Editkirukiru)">
+            <summary>
+            編輯文章
+            </summary>
+            <param name="editkirukiru">編輯文章前端回傳的檔案</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetEditArticle(System.Int32)">
+            <summary>
+            編輯用回傳文章資料
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.DeleteActile(System.Int32)">
+            <summary>
+            刪除文章
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetUserArticle(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            找到作者的所有切切
+            </summary>
+            <param name="ispush">是否發布(用來查詢是否在草稿</param>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">每頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.AddLoveArticle(System.Int32,System.Boolean)">
+            <summary>
+            按愛心
+            </summary>
+            <param name="artId">文章ID</param>
+            <param name="putlove">是否按愛心</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.Collectarticle(System.Int32)">
+            <summary>
+            收藏切切文章
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.Deletecollect(System.Int32)">
+            <summary>
+            取消收藏文章
+            </summary>
+            <param name="artId">收藏文章的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetAllcollectart(System.Int32,System.Int32)">
+            <summary>
+            取得會員收藏的切切文章
+            </summary>
+            <param name="nowpage">現在頁數(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.GetArtlogArticle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            依類別取得切切文章
+            </summary>
+            <param name="articlecategoryId">類別ID</param>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.EditMessage(System.Int32,System.String)">
+            <summary>
+            修改留言
+            </summary>
+            <param name="messageId">留言ID</param>
+            <param name="main">修改後內容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.EditReMessage(System.Int32,System.String)">
+            <summary>
+            修改回覆
+            </summary>
+            <param name="reMessageId">回覆的ID</param>
+            <param name="main">修改的內容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.DeleteMessage(System.Int32)">
+            <summary>
+            作者刪除留言
+            </summary>
+            <param name="messageId">留言ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleController.DeleteReMessage(System.Int32)">
+            <summary>
+            刪除切切作者回覆
+            </summary>
+            <param name="reMessageId">回覆ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Controllers.ArticleNormalController">
+            <summary>
+            一般文章的API
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.CreatArticleNormal(Kiru8th.Models.PutData.DataArticleNormal)">
+            <summary>
+            添加一般文章
+            </summary>
+            <param name="data">回傳給後端的格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.GetUserAllArticleNormal(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            找到作者自己的所有一般文章
+            </summary>
+            <param name="isPush">是否發布(判斷是否在草稿)</param>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.DeleteArticleNormal(System.Int32)">
+            <summary>
+            刪除作者的文章
+            </summary>
+            <param name="artId">要刪除的文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.EditArticleNormal(System.Int32,Kiru8th.Models.PutData.DataArticleNormal)">
+            <summary>
+            更改一般文章
+            </summary>
+            <param name="artId">文章的ID</param>
+            <param name="data">更改過後的資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.AddLoveArticleNormal(System.Int32,System.Boolean)">
+            <summary>
+            一般文章按愛心
+            </summary>
+            <param name="artId">文章id</param>
+            <param name="putlove">是否按愛心</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.GetArticleNormal(System.Nullable{System.Int32})">
+            <summary>
+            取得一般文章頁面所需資訊
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.GetNormalArticleForEdit(System.Nullable{System.Int32})">
+            <summary>
+            編輯用一般文章資訊
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.AddmessageArticleNrmal(System.Int32,System.String)">
+            <summary>
+            一般文章的留言
+            </summary>
+            <param name="artId">文章ID</param>
+            <param name="main">留言內容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.Addremessage(System.Int32,System.String)">
+            <summary>
+            回覆一般文章留言
+            </summary>
+            <param name="messageId">留言ID</param>
+            <param name="main">回覆留言的內容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.Getmessage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            找到一般文章所有的留言
+            </summary>
+            <param name="artId">文章ID</param>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.GetOneMessage(System.Int32)">
+            <summary>
+            取得一般文章一筆留言(含大頭貼))
+            </summary>
+            <param name="messageId">留言ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.DeleteMessage(System.Int32)">
+            <summary>
+            作者刪除留言
+            </summary>
+            <param name="messageId">留言ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.DeleteReMessage(System.Int32)">
+            <summary>
+            作者刪除回覆
+            </summary>
+            <param name="reMessageId">回覆ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.Getrmessage(System.Int32)">
+            <summary>
+            取得此留言回覆
+            </summary>
+            <param name="messageId">留言id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.Collectarticle(System.Int32)">
+            <summary>
+            收藏一般文章
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.Deletecollect(System.Int32)">
+            <summary>
+            取消收藏
+            </summary>
+            <param name="artId">文章ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.GetAllcollectart(System.Int32,System.Int32)">
+            <summary>
+            取得會員收藏的一般文章
+            </summary>
+            <param name="nowpage">現在頁數(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.GetArtlogNormalArticle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            依照類別取得相關一般文章
+            </summary>
+            <param name="articlecategoryId">文章類別ID</param>
+            <param name="nowpage">現在頁數(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.EditMessage(System.Int32,System.String)">
+            <summary>
+            修改留言
+            </summary>
+            <param name="messageId">留言ID</param>
+            <param name="main">修改後內容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.ArticleNormalController.EditReMessage(System.Int32,System.String)">
+            <summary>
+            修改回覆
+            </summary>
+            <param name="reMessageId">回覆的ID</param>
+            <param name="main">修改的內容</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Controllers.BackmemberController">
+            <summary>
+            後台專區
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.HashWithSaltResult(System.String,System.String,System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            註冊後台管理員
+            </summary>
+            <param name="username">帳號</param>
+            <param name="userpassword">密碼</param>
+            <param name="email">信箱</param>
+            <param name="name">姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.Showallqa">
+            <summary>
+            取得所有QA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.Checkemail(System.String,System.String)">
+            <summary>
+            信箱驗證
+            </summary>
+            <param name="ID">註冊者ID</param>
+            <param name="email">信箱認證的字串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.GetAllBackArticles">
+            <summary>
+            取得精選文章
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.CreateArticlecategory(System.String)">
+            <summary>
+            加入文章類別
+            </summary>
+            <param name="str">輸入文章類別</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.GetArticlecategory">
+            <summary>
+            查所有文章類別
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.DeleteArtlog(System.Int32)">
+            <summary>
+            刪除文章類別
+            </summary>
+            <param name="Artid">刪除文章類別的id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BackmemberController.GetArtlog(System.Int32)">
+            <summary>
+            找到文章類別
+            </summary>
+            <param name="Artid">找到文章類別的ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Controllers.BankController">
+            <summary>
+            金流串接
+            </summary>
+        </member>
+        <member name="F:Kiru8th.Controllers.BankController._bankInfoModel">
+            <summary>
+            金流基本資料(可再移到Web.config或資料庫設定)
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.SpgatewayPayBill(System.String,System.String)">
+            <summary>
+            [智付通支付]金流介接
+            </summary>
+            <param name="main">訂單內容</param>
+            <param name="payType">請款類型(CREDIT=信用卡付款\WEBATM=網路銀行轉帳付款)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.SpgatewayReturn(Kiru8th.Models.BlueBank.NewebPayreturn)">
+            <summary>
+            [智付通]金流介接(結果: 支付完成 返回商店網址)這是藍星傳給後端的資料讓後端去知道是否成功交易去更改訂單的狀態
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.SpgatewayPeriodic(System.String,System.Int32,System.String)">
+            <summary>
+            定期定額(藍新
+            </summary>
+            <param name="main">訂單內容</param>
+            <param name="amount">訂單金額</param>
+            <param name="peroidtype">訂閱(年/月)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.Ecpay(System.String,System.Int32,System.String)">
+            <summary>
+            綠界金流單筆
+            </summary>
+            <param name="main">內容(訂閱的帳號)</param>
+            <param name="amount">價錢</param>
+            <param name="Payment">預設(ALL)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.Ecpayperiod(System.String,System.Int32,System.String)">
+            <summary>
+            綠界金流 定期
+            </summary>
+            <param name="main">內容(訂閱帳號)</param>
+            <param name="PeriodAmount">訂閱金額</param>
+            <param name="PeriodType">月費還是年費(M/Y)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.EcReturn(Kiru8th.Models.EcpayBank.Ecreturndata)">
+            <summary>
+            綠界回傳資訊
+            </summary>
+            <param name="returndata"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.BankController.BuildCheckMacValue(System.String,System.Int32)">
+            <summary>
+             產生檢查碼。
+             </summary>
+             <param name="parameters"></param>
+             <returns></returns>
+             傳遞 parameters 參數,需要先經過英文字母 A-Z 排序
+        </member>
+        <member name="T:Kiru8th.Controllers.HomepageController">
+            <summary>
+            首頁切切的API
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepageController.SeekArticle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            依類別取切切文章(按照時間最新排列(有完成訂閱作者的話他的文章都會解鎖
+            </summary>
+            <param name="articlecategoryId">類別的數字值</param>
+            <param name="nowpage">現在的頁數(一開始請填1)</param>
+            <param name="showcount">要顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepageController.SeekTimeArticle(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            依照時間範圍搜尋切切文章
+            </summary>
+            <param name="datetime1">較早的時間(ex:2022.03.08)</param>
+            <param name="datetime2">較晚的時間(ex:2022.03.10)</param>
+            <param name="nowpage">現在頁數(一開始請直接傳1)</param>
+            <param name="showcount">顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepageController.NewArticle(System.Int32,System.Int32)">
+            <summary>
+            最新的切切文章排列
+            </summary>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepageController.Lovearticle(System.Int32,System.Int32)">
+            <summary>
+            最熱門的切切文章排列
+            </summary>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepageController.Seekstringarticle(System.String,System.Int32,System.Int32)">
+            <summary>
+            關鍵字搜尋切切文章標題
+            </summary>
+            <param name="keywords">關鍵字</param>
+            <param name="nowpage">現在的頁數(一開始就是第一頁,請填1)</param>
+            <param name="showcount">顯示筆數</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Controllers.HomepagenormalController">
+            <summary>
+            首頁顯示一般文章
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepagenormalController.SeekArticle(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            依類別搜尋一般文章(按照時間排列)
+            </summary>
+            <param name="articlecategoryId">類別ID</param>
+            <param name="nowpage">現在的頁數(一開始請填1)</param>
+            <param name="showcount">要顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepagenormalController.SeekTimeArticle(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            依照時間搜尋一般文章
+            </summary>
+            <param name="datetime1">較早的時間(ex:2022.03.08)</param>
+            <param name="datetime2">較晚的時間(ex:2022.03.10)</param>
+            <param name="nowpage">現在頁數(一開始請直接傳1)</param>
+            <param name="showcount">顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepagenormalController.NewArticle(System.Int32,System.Int32)">
+            <summary>
+            最新的一般文章
+            </summary>
+            <param name="showcount">一頁顯示幾筆</param>
+            <param name="nowpage">現在頁數</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepagenormalController.Lovearticle(System.Int32,System.Int32)">
+            <summary>
+            最熱門的一般文章
+            </summary>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.HomepagenormalController.Seekstringarticle(System.String,System.Int32,System.Int32)">
+            <summary>
+            依關鍵字搜尋一般文章
+            </summary>
+            <param name="keywords">關鍵字</param>
+            <param name="nowpage">現在的頁數(一開始就是第一頁,請填1)</param>
+            <param name="showcount">顯示筆數</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.CreatMember(Kiru8th.PutData.DataMember)">
+            <summary>
+            會員註冊
+            </summary>
+            <param name="data">會員資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.Login(Kiru8th.PutData.Logintable)">
+            <summary>
+            登入
+            </summary>
+            <param name="login">登入表單</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetName">
+            <summary>
+            回傳會員資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.NewPassWord(System.String,System.String)">
+            <summary>
+            忘記密碼
+            </summary>
+            <param name="username">帳號</param>
+            <param name="eMail">註冊信箱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.ChangPassword(Kiru8th.PutData.ChangePassword)">
+            <summary>
+            更改密碼
+            </summary>
+            <param name="changePassworddata">會員輸入帳密表單(O_Password為舊密碼N_Password為新密碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.ChangeName(System.String)">
+            <summary>
+            更改會員名字
+            </summary>
+            <param name="name">會員更新名字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.ChangeInfo(System.String)">
+            <summary>
+            更改會員敘述
+            </summary>
+            <param name="introduction">會員敘述</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.ChangeEmail(System.String)">
+            <summary>
+            更改會員信箱
+            </summary>
+            <param name="email">會員信箱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.ChagneOpenCollect(System.Boolean)">
+            <summary>
+            是否公開會員收藏文章
+            </summary>
+            <param name="opencollect">是否公開</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetArticlenumber(System.String)">
+            <summary>
+            找到會員收藏文章的數量
+            </summary>
+            <param name="memberUserName">會員帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetMemberartnumber(System.String)">
+            <summary>
+            取得作者發布的文章數量
+            </summary>
+            <param name="memberUserName">會員帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.Collectauthorarticle(System.String,System.Int32,System.Int32)">
+            <summary>
+            查詢作者蒐藏的切切文章
+            </summary>
+            <param name="authorusername">作者帳號名稱</param>
+            <param name="nowpage">現在頁面(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.CollectauthorNormalarticle(System.String,System.Int32,System.Int32)">
+            <summary>
+            查詢作者的蒐藏的一般文章
+            </summary>
+            <param name="authorusername">作者帳號名稱</param>
+            <param name="nowpage">現在頁面(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetMyArticles(System.String,System.Int32,System.Int32)">
+            <summary>
+            作者所有切切文章
+            </summary>
+            <param name="username">作者帳號</param>
+            <param name="nowpage">現在頁面(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetMyNormalArticles(System.String,System.Int32,System.Int32)">
+            <summary>
+            作者所有一般文章
+            </summary>
+            <param name="username">作者帳號</param>
+            <param name="nowpage">現在頁面(預設為1)</param>
+            <param name="showcount">一頁顯示幾筆資料</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.ChangePhoto(System.String)">
+            <summary>
+            更改會員大頭貼
+            </summary>
+            <param name="Userpic">圖片名稱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.Getordernumber(System.String)">
+            <summary>
+            取得會員訂閱數量
+            </summary>
+            <param name="memberUserName">會員帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetBeordernumber(System.String)">
+            <summary>
+            取得會員被多少人訂閱的數量
+            </summary>
+            <param name="memberUserName">會員帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetName(System.String)">
+            <summary>
+            回傳作者個人資料
+            </summary>
+            <param name="author">會員帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.AddNewSubscriptionplans">
+            <summary>
+            開通會員訂閱方案
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetMySubscriptionplans">
+            <summary>
+            取得我的方案
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.EditSubserciptionplans(System.String)">
+            <summary>
+            修改訂閱金額
+            </summary>
+            <param name="Amount">訂閱金額</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.EditSubInfo(System.String)">
+            <summary>
+            修改訂閱簡介
+            </summary>
+            <param name="info">簡介輸入</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetAuthorSubscriptionplans(System.String)">
+            <summary>
+            取得作者方案
+            </summary>
+            <param name="author">作者帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.MemberController.GetMyOrder(System.Int32,System.Int32)">
+            <summary>
+            我的訂閱清單
+            </summary>
+            <param name="nowpage">現在頁數(預設1)</param>
+            <param name="showcount">一頁顯示幾筆</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Controllers.UploadController.Upload">
+            <summary>
+            圖片上傳專區
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Models.BackArticle">
+            <summary>
+            後台文章
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Backmember">
+            <summary>
+            後台管理員
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.BackQA">
+            <summary>
+            後台QA文章
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BackQA.ID">
+            <summary>
+            編號ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BackQA.Title">
+            <summary>
+            問題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BackQA.Answer">
+            <summary>
+            答案
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BackQA.InitDateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.Atom">
+            <summary>執行結果基元</summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Atom.IsSuccess">
+            <summary>是否成功</summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Atom.Message">
+            <summary>訊息</summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.Atom`1">
+            <summary>執行結果基元(泛型)</summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Atom`1.IsSuccess">
+            <summary>執行是否成功</summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Atom`1.IsError">
+            <summary>是否為錯誤狀態</summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Atom`1.Message">
+            <summary>訊息</summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Atom`1.Item">
+            <summary>項目</summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.BankInfoModel">
+            <summary>
+            銀行端基本資訊
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.MerchantID">
+            <summary>
+            商店代號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.HashKey">
+            <summary>
+            AES 加密/SHA256 加密 Key
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.HashIV">
+            <summary>
+            AES 加密/SHA256 加密 IV
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.ReturnURL">
+            <summary>
+            支付完成 返回商店網址
+            <para>1.交易完成後，以 Form Post 方式導回商店頁面。</para>
+            <para>2.若為空值，交易完成後，消費者將停留在智付通付款或取號完成頁面。</para>
+            <para>3.只接受80與443 Port。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.NotifyURL">
+            <summary>
+            支付通知網址
+            <para>1.以幕後方式回傳給商店相關支付結果資料</para>
+            <para>2.只接受80與443 Port。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.CustomerURL">
+            <summary>
+            商店取號網址
+            <para>1.系統取號後以 form post 方式將結果導回商店指定的網址</para>
+            <para>2.此參數若為空值，則會顯示取號結果在智付通頁面。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.AuthUrl">
+            <summary>
+            授權網址
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.CloseUrl">
+            <summary>
+            (取消)請退款網址
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.BankInfoModel.PeriodUrl">
+            <summary>
+            定期定額的授權網址
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.ConfigurationUtility.GetAppSetting(System.String)">
+            <summary>
+            取得Web.config的AppSettings設定
+            </summary>
+            <param name="appSettingKey">讀取的appSettingKey</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.CryptoUtil">
+            <summary>
+            智付通加解密Util
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.CryptoUtil.EncryptAES(System.Byte[],System.String,System.String)">
+            <summary>
+            字串加密AES
+            </summary>
+            <param name="source">加密前字串</param>
+            <param name="cryptoKey">加密金鑰</param>
+            <param name="cryptoIV">cryptoIV</param>
+            <returns>加密後字串</returns>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.CryptoUtil.DecryptAES(System.Byte[],System.String,System.String)">
+            <summary>
+            字串解密AES
+            </summary>
+            <param name="source">解密前字串</param>
+            <param name="cryptoKey">解密金鑰</param>
+            <param name="cryptoIV">cryptoIV</param>
+            <returns>解密後字串</returns>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.CryptoUtil.EncryptAESHex(System.String,System.String,System.String)">
+            <summary>
+            加密後再轉 16 進制字串
+            </summary>
+            <param name="source">加密前字串</param>
+            <param name="cryptoKey">加密金鑰</param>
+            <param name="cryptoIV">cryptoIV</param>
+            <returns>加密後的字串</returns>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.CryptoUtil.DecryptAESHex(System.String,System.String,System.String)">
+            <summary>
+            16 進制字串解密
+            </summary>
+            <param name="source">加密前字串</param>
+            <param name="cryptoKey">加密金鑰</param>
+            <param name="cryptoIV">cryptoIV</param>
+            <returns>解密後的字串</returns>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.CryptoUtil.EncryptSHA256(System.String)">
+            <summary>
+            字串加密SHA256
+            </summary>
+            <param name="source">加密前字串</param>
+            <returns>加密後字串</returns>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.LambdaUtil">
+            <summary>
+            [Lambda]通用函式
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.LambdaUtil.DictionaryToObject``1(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Dictionary 轉為物件(欄位不分大小寫)
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+            <param name="dict">IDictionary 物件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.LambdaUtil.ModelToKeyValuePairList``1(``0)">
+            <summary>
+            將model 轉換為KeyValuePair List, null值不轉
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+            <param name="model">欲轉換之Model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.LogUtil.WriteLog(System.String)">
+            <summary>
+            寫入Log檔
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.LogUtil.WriteLog(System.Exception)">
+            <summary>
+            寫入Log檔
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.NewebPayreturn">
+            <summary>
+            藍星回傳格式
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.PathUtil.MapPath(System.String)">
+            <summary>
+            取得檔案實體路徑
+            </summary>
+            <param name="path">檔案路徑</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.RazorExtensions">
+            <summary>Razor 擴充函式</summary>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.RazorExtensions.LogFormData(System.Web.HttpRequestBase,System.String)">
+            <summary>紀錄 Form Data</summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.Returndata">
+            <summary>
+            解密後資料
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.MerchantID">
+            <summary>
+            商店代號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.Amt">
+            <summary>
+            交易金額
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.TradeNo">
+            <summary>
+            藍星交易序號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.MerchantOrderNo">
+            <summary>
+            商店訂單編號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.PaymentType">
+            <summary>
+            支付方式
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.RespondCode">
+            <summary>
+            金融機構回應碼(電子錢包專屬)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.Auth">
+            <summary>
+            收單銀行
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.Card6No">
+            <summary>
+            信用卡前6碼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.Card4No">
+            <summary>
+            信用卡後4碼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.InstFirst">
+            <summary>
+            分期-首期金額(信用卡專屬)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.InstEach">
+            <summary>
+            分期-每期金額(信用卡專屬)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.Inst">
+            <summary>
+            分期-期別(信用卡專屬)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.ECI">
+            <summary>
+            ECI(信用卡專屬)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.PayTime">
+            <summary>
+            支付完成時間
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.Result.PaymentMethod">
+            <summary>
+            交易類別(電子支付)
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.SpgatewayInputModel">
+            <summary>
+            [智付通]介接資料模型
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayInputModel.MerchantID">
+            <summary>
+            商店代號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayInputModel.TradeInfo">
+            <summary>
+            交易資料AES 加密
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayInputModel.TradeSha">
+            <summary>
+            交易資料SHA256 加密
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayInputModel.Version">
+            <summary>
+            串接程式版本
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel">
+            <summary>
+            智付通交易支付系統回傳解密後資料
+            <para>1. 即時交易支付方式：信用卡(CREDIT)、WebATM(WEBATM) 、Pay2go 電子錢包(P2G)、Google Pay(ANDROIDPAY)、Samsung Pay(SAMSUNGPAY)。</para>
+            <para>2. 非即時交易支付方式：超商代碼繳費(CVS)、ATM 轉帳(VACC)、超商條碼繳費(BARCODE) 、超商取貨付款(CVSCOM)。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel.Status">
+            <summary>
+            回傳狀態
+            <para>1.若交易付款成功，則回傳SUCCESS。</para>
+            <para>2.若交易付款失敗，則回傳錯誤代碼。</para>
+            <para>3.若使用新增自訂支付欄位之交易，則回傳CUSTOM。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel.Message">
+            <summary>
+            回傳訊息(敘述此次交易狀態。)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel.MerchantID">
+            <summary>
+            商店代號(智付通商店代號)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel.Amt">
+            <summary>
+            交易金額
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel.TradeNo">
+            <summary>
+            智付通交易序號
+            <para>智付通在此筆交易取號成功時所產生的序號。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.SpgatewayOutputDataModel.MerchantOrderNo">
+            <summary>
+            商店訂單編號
+            <para>商店自訂訂單編號。</para>
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.StringExtension">
+            <summary>
+            字串擴充功能
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Models.BlueBank.StringExtension.ToByteArray(System.String)">
+            <summary>
+            將16進位字串轉換為byteArray
+            </summary>
+            <param name="source">欲轉換之字串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.Models.BlueBank.TradeInfo">
+            <summary>
+            交易資訊
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.MerchantID">
+            <summary>
+            * 商店代號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.RespondType">
+            <summary>
+            * 回傳格式
+            <para>JSON 或是 String</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.TimeStamp">
+            <summary>
+            * TimeStamp
+            <para>自從 Unix 纪元（格林威治時間 1970 年 1 月 1 日 00:00:00）到當前時間的秒數。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.Version">
+            <summary>
+            * 串接程式版本
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.LangType">
+            <summary>
+            語系
+            <para>英文版參數為en、繁體中文版參數為zh-tw</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.MerchantOrderNo">
+            <summary>
+            * 商店訂單編號
+            <para>限英、數字、_ 格式</para>
+            <para>長度限制為20字</para>
+            <para>同一商店中此編號不可重覆。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.Amt">
+            <summary>
+            * 訂單金額
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.ItemDesc">
+            <summary>
+            * 商品資訊
+            <para>1.限制長度為50字。</para>
+            <para>2.編碼為Utf-8格式。</para>
+            <para>3.請勿使用斷行符號、單引號等特殊符號，避免無法顯示完整付款頁面。</para>
+            <para>4.若使用特殊符號，系統將自動過濾。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.TradeLimit">
+            <summary>
+            交易限制秒數
+            <para>1.限制交易的秒數，當秒數倒數至0時，交易當做失敗。</para>
+            <para>2.僅可接受數字格式。</para>
+            <para>3.秒數下限為60秒，當秒數介於1 ~59秒時，會以60秒計算。</para>
+            <para>4.秒數上限為900秒，當超過900秒時，會以900秒計算。</para>
+            <para>5.若未帶此參數，或是為0時，會視作為不啟用交易限制秒數。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.ExpireDate">
+            <summary>
+            繳費有效期限(適用於非即時交易)
+            <para>1.格式為 date('Ymd') ，例：20140620</para>
+            <para>2.此參數若為空值，系統預設為7天。自取號時間起算至第7天23:59:59。 例：2014-06-23 14:35:51完成取號，則繳費有效期限為2014-06-29 23:59:59。</para>
+            <para>3.可接受最大值為180天。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.ReturnURL">
+            <summary>
+            支付完成 返回商店網址
+            <para>1.交易完成後，以 Form Post 方式導回商店頁面。</para>
+            <para>2.若為空值，交易完成後，消費者將停留在智付通付款或取號完成頁面。</para>
+            <para>3.只接受80與443 Port。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.NotifyURL">
+            <summary>
+            支付通知網址
+            <para>1.以幕後方式回傳給商店相關支付結果資料</para>
+            <para>2.只接受80與443 Port。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.CustomerURL">
+            <summary>
+            商店取號網址
+            <para>1.系統取號後以 form post 方式將結果導回商店指定的網址</para>
+            <para>2.此參數若為空值，則會顯示取號結果在智付通頁面。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.ClientBackURL">
+            <summary>
+            支付取消 返回商店網址
+            <para>1.當交易取消時，平台會出現返回鈕，使消費者依以此參數網址返回商店指定的頁面。</para>
+            <para>2.此參數若為空值時，則無返回鈕。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.Email">
+            <summary>
+            * 付款人電子信箱
+            <para>於交易完成或付款完成時，通知付款人使用。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.EmailModify">
+            <summary>
+            付款人電子信箱 是否開放修改
+            <para>1=可修改 0=不可修改</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.LoginType">
+            <summary>
+            * 智付通會員
+            <para>0=不須登入智付通會員</para>
+            <para>1=須要登入智付通會員</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.OrderComment">
+            <summary>
+            商店備註
+            <para>1.限制長度為300字。</para>
+            <para>2.若有提供此參數，將會於MPG頁面呈現商店備註內容。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.CREDIT">
+            <summary>
+            信用卡 一次付清啟用
+            <para>設定是否啟用信用卡一次付清支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0或者未有此參數=不啟用</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.ANDROIDPAY">
+            <summary>
+            Google Pay 啟用
+            <para>設定是否啟用Google Pay支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0或者未有此參數=不啟用</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.SAMSUNGPAY">
+            <summary>
+            Samsung Pay 啟用
+            <para>設定是否啟用Samsung Pay支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0或者未有此參數=不啟用</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.InstFlag">
+            <summary>
+            信用卡 分期付款啟用
+            <para>1. 此欄位值=1 時，即代表開啟所有分期期別，且不可帶入其他期別參數。</para>
+            <para>2. 此欄位值為下列數值時，即代表開啟該分期期別。(3=分 3 期功能、6=分 6 期功能、12=分 12 期功能、18=分 18 期功能、24=分 24 期功能、30=分 30 期功能)</para>
+            <para>同時開啟多期別時，將此參數用"，"(半形)分隔，例如：3,6,12，代表開啟分3、6、12 期的功能。</para>
+            <para>此欄位值=0或無值時，即代表不開啟分期。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.CreditRed">
+            <summary>
+            信用卡 紅利啟用
+            <para>設定是否啟用信用卡紅利支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0或者未有此參數=不啟用</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.UNIONPAY">
+            <summary>
+            信用卡 銀聯卡啟用
+            <para>設定是否啟用銀聯卡支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0或者未有此參數=不啟用</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.WEBATM">
+            <summary>
+            WEBATM啟用
+            <para>設定是否啟用WEBATM支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0 或者未有此參數，即代表不開啟</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.VACC">
+            <summary>
+            ATM 轉帳啟用
+            <para>設定是否啟用ATM 轉帳支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0 或者未有此參數，即代表不開啟</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.CVS">
+            <summary>
+            超商代碼繳費啟用
+            <para>設定是否啟用超商代碼繳費支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0 或者未有此參數，即代表不開啟</para>
+            <para>當該筆訂單金額小於 30 元或超過 2 萬元時，即使此參數設定為啟用，MPG 付款頁面仍不會顯示此支付方式選項。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.BARCODE">
+            <summary>
+            超商條碼繳費啟用
+            <para>設定是否啟用超商條碼繳費支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0 或者未有此參數，即代表不開啟</para>
+            <para>當該筆訂單金額小於 20 元或超過 4 萬元時，即使此參數設定為啟用，MPG 付款頁面仍不會顯示此支付方式選項。</para>
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.P2G">
+            <summary>
+            Pay2go 電子錢包啟用
+            <para>設定是否啟用Pay2go 電子錢包支付方式。</para>
+            <para>1 =啟用</para>
+            <para>0 或者未有此參數，即代表不開啟</para>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Kiru8th.Models.BlueBank.TradeInfo.CVSCOM" -->
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.PeriodType">
+            <summary>
+            週期類別(D=固定天期,W=每周,M=每月,Y=每年)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.PeriodPoint">
+            <summary>
+            交易週期授權時間1.修改此委託單於週期間，執行信用卡授權交易的時間點。
+            2.當週期參數為 D 時，此欄位值限為數字 2~999，以授權日期隔日起算。例：數值為 2，則表示每隔兩天會執行一次委託單。
+            3.當週期參數為 W 時，此欄位值限為數字 1~7，數字 1~7 表示每週一 ~週日。例：每週日執行授權，則此欄位值為7；若週日與週一皆需執行授權，請分別建立 2 張委託單。
+            4.當週期參數為 M 時，此欄位值限為數字 01~31，數字 01~31 表示每月1 號 ~31 號，若當月沒該日期則由該月的最後一天做為扣款日。例：每月 1 號執行授權，則此欄位值為 01；若設定為 30，該排程遇2 月時將在 28 發動；若於 1 個月內需授權多次，請以建立多張委託單方式執行。
+            5.當週期參數為 Y 時，此欄位值格式為MMDD。例：每年的 3 月 15 號執行授權，則此欄位值為 0315；若於 1 年內需授權多次，請以建立多張委託單方式執行
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.PeriodStartType">
+            <summary>
+            檢查卡號模式
+            １=立即執行十元授權（因部分發卡銀行會阻擋一元交易，因此調整為十元）
+            ２=立即執行委託金額授權
+            ３=不檢查信用卡資訊，不授權
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.PeriodTimes">
+            <summary>
+            授權期數
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.ProdDesc">
+            <summary>
+            產品名稱 
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.BlueBank.TradeInfo.PeriodAmt">
+            <summary>
+            委託金額
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.CollectsNormal">
+            <summary>
+            收藏一般文章列表
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.CollectsNormal.Id">
+            <summary>
+            收藏的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.CollectsNormal.MemberId">
+            <summary>
+            使用者帳號Id
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.CollectsNormal.ArticleNormalId">
+            <summary>
+            一般文章ID
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.EcpayBank.Ecreturndata">
+            <summary>
+            綠界回傳資料
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.EcpayBank.Ecreturndata.MerchantTradeNo">
+            <summary>
+            訂單編號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.EcpayBank.Ecreturndata.RtnCode">
+            <summary>
+            RtnCode成功為1
+            </summary>
+        </member>
+        <member name="F:Kiru8th.Models.EcpayBank.MD5Encoder.Crypto">
+            <summary>
+            雜湊加密演算法物件。
+            </summary>
+        </member>
+        <member name="F:Kiru8th.Models.EcpayBank.SHA256Encoder.Crypto">
+            <summary>
+            雜湊加密演算法物件。
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.EunData.MemberOrderNum">
+            <summary>
+            最多訂閱會員
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Article">
+            <summary>
+            切切文章
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.ID">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.MemberId">
+            <summary>
+            使用者帳號Id
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.FirstPicName">
+            <summary>
+            封面圖片名稱
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.Title">
+            <summary>
+            文章標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.IsFree">
+            <summary>
+            是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.Introduction">
+            <summary>
+            文章簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.ArticlecategoryId">
+            <summary>
+            文章類型
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.IsPush">
+            <summary>
+            是否發布
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.InitDate">
+            <summary>
+            創建時間
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.Lovecount">
+            <summary>
+            愛心的數量
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.FinalText">
+            <summary>
+            文章備註
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Article.IsManangerStop">
+            <summary>
+            文章使否被管理者停權
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Articlecategory">
+            <summary>
+            文章類別
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.ArticleMain">
+            <summary>
+            切切的內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleMain.Id">
+            <summary>
+            切切內容的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleMain.PicName">
+            <summary>
+            切切內容的圖片名稱
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleMain.Main">
+            <summary>
+            切切文章內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleMain.ArticleId">
+            <summary>
+            文章的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleMain.InDateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.ArticleNormal">
+            <summary>
+            一般文章
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.ID">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.MemberId">
+            <summary>
+            使用者帳號Id
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.Title">
+            <summary>
+            文章標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.Introduction">
+            <summary>
+            文章簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.Main">
+            <summary>
+            文章內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.ArticlecategoryId">
+            <summary>
+            文章類型
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.IsFree">
+            <summary>
+            是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.IsPush">
+            <summary>
+            是否發布
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.InitDate">
+            <summary>
+            創建時間
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.Lovecount">
+            <summary>
+            愛心的數量
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ArticleNormal.IsManangerStop">
+            <summary>
+            文章使否被管理者停權
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Collect">
+            <summary>
+            收藏切切文章列表
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Collect.Id">
+            <summary>
+            收藏的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Collect.MemberId">
+            <summary>
+            使用者帳號Id
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Collect.ArticleId">
+            <summary>
+            切切文章ID
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.FinalMission">
+            <summary>
+            切切的附屬任務
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Firstmission">
+            <summary>
+            前置任務
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Firstmission.Id">
+            <summary>
+            前置任務ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Firstmission.PicName">
+            <summary>
+            前置任務的圖片名稱
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Firstmission.ArticleId">
+            <summary>
+            文章的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Firstmission.InitDate">
+            <summary>
+            創建時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Member">
+            <summary>
+            會員
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Message">
+            <summary>
+            切切的留言
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Message.Id">
+            <summary>
+            留言的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Message.UserName">
+            <summary>
+            會員的帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Message.ArticleId">
+            <summary>
+            切切文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Message.Main">
+            <summary>
+            內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Message.InitDate">
+            <summary>
+            留言時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.MessageNormal">
+            <summary>
+            一般文章留言
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.MessageNormal.Id">
+            <summary>
+            留言的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.MessageNormal.UserName">
+            <summary>
+            會員的帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.MessageNormal.ArticleNorId">
+            <summary>
+            一般文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.MessageNormal.Main">
+            <summary>
+            內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.MessageNormal.InitDate">
+            <summary>
+            留言時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Orderlist">
+            <summary>
+            訂閱清單
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.ID">
+            <summary>
+            訂單ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.Ordernumber">
+            <summary>
+            訂單編號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.MemberID">
+            <summary>
+            訂閱者的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.AuthorName">
+            <summary>
+            被訂閱者的帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.Amount">
+            <summary>
+            訂閱金額
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.Issuccess">
+            <summary>
+            是否交易成功
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Orderlist.InitDateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.ReMessage">
+            <summary>
+            切切留言的回覆
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessage.Id">
+            <summary>
+            回復留言的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessage.MessageId">
+            <summary>
+            留言的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessage.Main">
+            <summary>
+            內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessage.InitDate">
+            <summary>
+            留言時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.ReMessageNormal">
+            <summary>
+            一般文章回覆
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessageNormal.Id">
+            <summary>
+            回復留言的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessageNormal.MessageNorId">
+            <summary>
+            留言的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessageNormal.Main">
+            <summary>
+            內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.ReMessageNormal.InitDate">
+            <summary>
+            留言時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Subscriptionplan">
+            <summary>
+            訂閱方案
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Subscriptionplan.MemberID">
+            <summary>
+            會員的ID
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruArtLogFourOutPut">
+            <summary>
+            依照類別取得前四筆切切文章(用時間)
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.data">
+            <summary>
+            回傳資料內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data">
+            <summary>
+            回傳資料
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.ArticleID">
+            <summary>
+            切切文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.UserName">
+            <summary>
+            切切文章作者帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.Title">
+            <summary>
+            切切標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.ArtInfo">
+            <summary>
+            切切簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.Articlecategory">
+            <summary>
+            切切文章類別名稱
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.ArtPic">
+            <summary>
+            切切封面照片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.Isfree">
+            <summary>
+            切切是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.Lovecount">
+            <summary>
+            切切愛心數量
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruArtLogFourOutPut.Data.InitDateTime">
+            <summary>
+            切切建立時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruOutPutForEdit">
+            <summary>
+            切切回傳格式給編輯文章用
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.data">
+            <summary>
+            回傳資料內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data">
+            <summary>
+            回傳資料
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.artId">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.title">
+            <summary>
+            文章標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.firstPhoto">
+            <summary>
+            文章封面圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.introduction">
+            <summary>
+            文章簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.articlecategoryId">
+            <summary>
+            文章類型ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.artArtlog">
+            <summary>
+            文章類型名稱
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.fArrayList">
+            <summary>
+            前置內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.mArrayList">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.fMissionList">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.isFree">
+            <summary>
+            是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.isPush">
+            <summary>
+            是否發布
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Data.final">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruOutPutForEdit.FirstM">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.FirstM.fId">
+            <summary>
+            前置任務ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.FirstM.secPhoto">
+            <summary>
+            前置任務圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.FirstM.mission">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruOutPutForEdit.Main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Main.mId">
+            <summary>
+            切切ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Main.thirdPhoto">
+            <summary>
+            切切圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.Main.main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.KiruOutPutForEdit.FinamlM">
+            <summary>
+            附屬任務
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.FinamlM.fId">
+            <summary>
+            附屬任務ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.FinamlM.auxiliary">
+            <summary>
+            附屬任務標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.KiruOutPutForEdit.FinamlM.auxiliarymain">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.NormalArticleOutPutForEdit">
+            <summary>
+            一般文章的編輯資訊
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Models.Swagger.OutPutReMessage">
+            <summary>
+            回覆留言格式
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.OutPutReMessage.reMessageId">
+            <summary>
+            回覆留言本身ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.OutPutReMessage.reMessageMain">
+            <summary>
+            回覆留言內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Models.Swagger.OutPutReMessage.reMessageInitDate">
+            <summary>
+            回覆留言時間
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Models.Upload.SaveUpImage(System.Web.HttpPostedFileBase)">
+            <summary>
+            儲存上傳圖片
+            </summary>
+            <param name="upfile">HttpPostedFile 物件</param>
+            <returns>儲存檔名</returns>
+        </member>
+        <member name="M:Kiru8th.Models.Upload.GenerateThumbnailImage(System.String,System.IO.Stream,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            舉世無敵縮圖程式(多載)
+            1.會自動判斷是比較高還是比較寬，以比較大的那一方決定要縮的尺寸
+            2.指定寬度，等比例縮小
+            3.指定高度，等比例縮小
+            </summary>
+            <param name="name">原檔檔名</param>
+            <param name="source">來源檔案的Stream,可接受上傳檔案</param>
+            <param name="target">目的路徑</param>
+            <param name="suffix">縮圖辯識符號</param>
+            <param name="MaxWidth">指定要縮的寬度</param>
+            <param name="MaxHight">指定要縮的高度</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Kiru8th.Email.Sendmail.Sendemail(System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            寄信
+            </summary>
+            <param name="id">註冊好資料庫回傳的ID</param>
+            <param name="username">註冊帳號</param>
+            <param name="name">註冊者名字</param>
+            <param name="mailaddress">註冊者信箱</param>
+            <param name="emailidentify">信箱驗證號碼</param>
+        </member>
+        <member name="M:Kiru8th.Email.Sendmail.SendForgetPassWordsMail(System.String,System.String,System.String,System.String)">
+            <summary>
+            忘記密碼寄信
+            </summary>
+            <param name="username">使用者帳號</param>
+            <param name="name">使用者名字</param>
+            <param name="mailaddress">使用者信箱</param>
+            <param name="passwords">預設密碼</param>
+        </member>
+        <member name="M:Kiru8th.JWT.JwtAuthUtil.GenerateToken(System.Int32,System.String,System.String)">
+            <summary>
+            產生Token
+            </summary>
+            <param name="id">使用者id</param>
+            <param name="username">帳號</param>
+            <param name="name">名字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.JWT.JwtAuthUtil.GetId(System.String)">
+            <summary>
+            查詢使用者ID
+            </summary>
+            <param name="Token">輸入前面拿到的Token key</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.JWT.JwtAuthUtil.GetUsername(System.String)">
+            <summary>
+            查詢使用者名字
+            </summary>
+            <param name="Token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kiru8th.JWT.JwtAuthUtil.GetuserList(System.String)">
+            <summary>
+            查詢使用者Token的內容
+            </summary>
+            <param name="Token">Token</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kiru8th.PutData.ChangePassword">
+            <summary>
+            更改密碼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.ChangePassword.Username">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.ChangePassword.O_Password">
+            <summary>
+            舊密碼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.ChangePassword.N_Password">
+            <summary>
+            新密碼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.memberUserName">
+            <summary>
+            會員帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.title">
+            <summary>
+            切切標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.firstPhoto">
+            <summary>
+            切切封面圖
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.introduction">
+            <summary>
+            切切簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.articlecategoryId">
+            <summary>
+            切切文章分類ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.fArrayList">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.mArrayList">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.isFree">
+            <summary>
+            是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.isPush">
+            <summary>
+            是否發布
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.fMissionList">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.final">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.DataArticle.FirstM">
+            <summary>
+            前置任務
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.FirstM.secPhoto">
+            <summary>
+            前置任務圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.FirstM.mission">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.DataArticle.Main">
+            <summary>
+            切切
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.Main.thirdPhoto">
+            <summary>
+            切切圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.Main.main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.DataArticle.FinalM">
+            <summary>
+            附屬任務
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.FinalM.auxiliary">
+            <summary>
+            附屬任務標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.DataArticle.FinalM.auxiliarymain">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.artId">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.userName">
+            <summary>
+            作者會員帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.title">
+            <summary>
+            文章標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.firstPhoto">
+            <summary>
+            文章封面圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.introduction">
+            <summary>
+            文章簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.articlecategoryId">
+            <summary>
+            文章類型ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.fArrayList">
+            <summary>
+            前置內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.mArrayList">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.fMissionList">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.isFree">
+            <summary>
+            是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.isPush">
+            <summary>
+            是否發布
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.final">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.Editkirukiru.FirstM">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.FirstM.secPhoto">
+            <summary>
+            前置任務圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.FirstM.mission">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.Editkirukiru.Main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.Main.thirdPhoto">
+            <summary>
+            切切圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.Main.main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.Editkirukiru.FinamlM">
+            <summary>
+            附屬任務
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.FinamlM.auxiliary">
+            <summary>
+            附屬任務標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Editkirukiru.FinamlM.auxiliarymain">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.PutData.Logintable">
+            <summary>
+            登入表單
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Logintable.Username">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.PutData.Logintable.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput">
+            <summary>
+            切切回傳格式
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.data">
+            <summary>
+            回傳資料內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput.Data">
+            <summary>
+            回傳資料
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.artId">
+            <summary>
+            文章ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.username">
+            <summary>
+            文章作者帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.authorPic">
+            <summary>
+            文章作者頭貼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.author">
+            <summary>
+            文章作者名字
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.title">
+            <summary>
+            文章標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.firstPhoto">
+            <summary>
+            文章封面圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.introduction">
+            <summary>
+            文章簡介
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.articlecategoryId">
+            <summary>
+            文章類型ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.artArtlog">
+            <summary>
+            文章類型名稱
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.fArrayList">
+            <summary>
+            前置內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.mArrayList">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.fMissionList">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.isFree">
+            <summary>
+            是否付費
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.isPush">
+            <summary>
+            是否發布
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.final">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.lovecount">
+            <summary>
+            愛心數量
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Data.messageArrayList">
+            <summary>
+            留言內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput.FirstM">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.FirstM.fId">
+            <summary>
+            前置任務ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.FirstM.secPhoto">
+            <summary>
+            前置任務圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.FirstM.mission">
+            <summary>
+            前置任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput.Main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Main.mId">
+            <summary>
+            切切ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Main.thirdPhoto">
+            <summary>
+            切切圖片
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Main.main">
+            <summary>
+            切切內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput.FinamlM">
+            <summary>
+            附屬任務
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.FinamlM.fId">
+            <summary>
+            附屬任務ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.FinamlM.auxiliary">
+            <summary>
+            附屬任務標題
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.FinamlM.auxiliarymain">
+            <summary>
+            附屬任務內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput.Message">
+            <summary>
+            留言
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Message.messageId">
+            <summary>
+            留言ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Message.messageMember">
+            <summary>
+            留言人的帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Message.messageMemberPic">
+            <summary>
+            留言者大頭貼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Message.messageMain">
+            <summary>
+            留言內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Message.messageInitDate">
+            <summary>
+            留言時間
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.Message.reMessageArrayList">
+            <summary>
+            回覆留言的內容
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.Kirukiruoutput.ReMessage">
+            <summary>
+            回覆留言內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.ReMessage.reMessageId">
+            <summary>
+            回覆的ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.ReMessage.reMessageMain">
+            <summary>
+            回覆內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.Kirukiruoutput.ReMessage.reMessageInitDate">
+            <summary>
+            回覆時間
+            </summary>
+        </member>
+        <member name="T:Kiru8th.Swagger.OutPutMessage">
+            <summary>
+            留言回傳格式
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.OutPutMessage.messageId">
+            <summary>
+            留言ID
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.OutPutMessage.messageMemberPic">
+            <summary>
+            留言者大頭貼
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.OutPutMessage.messageMember">
+            <summary>
+            留言帳號
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.OutPutMessage.messageMain">
+            <summary>
+            留言內容
+            </summary>
+        </member>
+        <member name="P:Kiru8th.Swagger.OutPutMessage.messageInitDate">
+            <summary>
+            留言時間
+            </summary>
+        </member>
+        <member name="M:Kiru8th.Startup.ConfigureAuth(Owin.IAppBuilder)">
+            <summary>
+            啟用跨域及驗證配置
+            </summary>
+            <param name="app"></param>
+        </member>
+    </members>
+</doc>

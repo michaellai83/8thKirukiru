@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Kiru8th.Models.BackQA>
+
+@{
+    ViewBag.Title = "ShowAllQA";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+}
+<div class="pcoded-content">
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">查看QA</h5>
+                        <p class="m-b-0">查看所有QA</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("ShowAllQA")">查看QA</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
+
+    <div class="pcoded-inner-content">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+
+                <!-- Page body start -->
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- Basic Form Inputs card start -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>QA列表</h5>
+                                    <span>
+                                        <a href="@Url.Action("AddQA")"class="btn waves-effect waves-light btn-warning btn-outline-warning">新增QA</a>
+                                        @*@Html.ActionLink("新增QA", "AddQA")*@
+                                    </span>
+                                </div>
+                                <div class="card-block">
+                                    <table class="table">
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Title)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Answer)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.InitDateTime)
+                                            </th>
+                                            <th></th>
+                                        </tr>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Title)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Answer)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.InitDateTime)
+                                                </td>
+                                                <td>
+                                                    <a href="@Url.Action("EditQA", new {qaId = item.ID})" class="btn waves-effect waves-light btn-success btn-outline-success">編輯</a>
+                                                    <a href="@Url.Action("DetailQA", new {qaId = item.ID})"class="btn waves-effect waves-light btn-info btn-outline-info">詳細</a>
+                                                    <a href="@Url.Action("DeleteQA", new {qaId = item.ID})" class="btn waves-effect waves-light btn-danger btn-outline-danger" onclick="return confirm('確定要刪除此QA嗎?')">刪除QA</a>
+                                                    @*@Html.ActionLink("編輯", "EditQA", new {qaId = item.ID}) |
+                                                    @Html.ActionLink("詳細", "DetailQA", new {qaId = item.ID}) |
+                                                    @Html.ActionLink("刪除", "DeleteQA", new {qaId = item.ID})*@
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Basic Form Inputs card end -->
+                        </div>
+                    </div>
+                </div>
+
+              
+
+            </div>
+            <!-- Main-body end -->
+        </div>
+    </div>
+</div>
+
+

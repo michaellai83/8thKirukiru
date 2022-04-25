@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Kiru8th.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">切切文章列表</h5>
+                    <p class="m-b-0">切切列表</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Articles")">切切文章列表</a>
+                    </li>
+                    @*<li class="breadcrumb-item">
+                        <a href="@ViewBag.url">精選文章</a>
+                    </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+<div class="card">
+<div class="card-block table-border-style">
+<div class="table-responsive">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Articlecategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstPicName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPush)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InitDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lovecount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsManangerStop)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Articlecategory.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.UserName)
+        </td>
+        <td>
+            <img src="~/Pic/@(Html.DisplayFor(modelItem => item.FirstPicName))" width="200px" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFree)
+        </td>
+        <td>
+            @Html.Raw(item.Introduction)
+            @*@Html.Raw((@Html.DisplayFor(modelItem => item.Introduction)))*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPush)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lovecount)
+        </td>
+        <td>
+            @Html.Raw(item.FinalText)
+            @*@Html.Raw(@Html.DisplayFor(modelItem => item.FinalText))*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsManangerStop)
+        </td>
+        <td>
+            <a href="@Url.Action("Details",new{id = item.ID})" class="btn waves-effect waves-light btn-info btn-outline-info">詳細內容</a>
+            <a href="@Url.Action("Delete", new {id = item.ID})"class="btn waves-effect waves-light btn-danger btn-outline-danger"onclick="return confirm('確定要刪除此文章嗎?')">刪除</a>
+            @*@Html.ActionLink("Edit", "Edit", new {id = item.ID}) |
+            @Html.ActionLink("Details", "Details", new {id = item.ID}) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.ID})*@
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+</div>
+</div>
+  
+
+
+
+</div>
+</div>
+</div>

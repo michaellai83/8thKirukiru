@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Kiru8th.Models.Orderlist>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Backend/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pcoded-content">
+<!-- Page-header start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">切切會員訂單列表</h5>
+                    <p class="m-b-0">訂單列表</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index")"> <i class="fa fa-home"></i> </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="@Url.Action("Index","Orderlists")">切切會員訂單列表</a>
+                    </li>
+                    @*<li class="breadcrumb-item">
+                        <a href="@ViewBag.url">精選文章</a>
+                    </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+<!-- Main-body start -->
+<div class="main-body">
+    <div class="card">
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Members.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Ordernumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AuthorName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Issuccess)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.InitDateTime)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Members.UserName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ordernumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AuthorName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Issuccess)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InitDateTime)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details",new{id = item.ID})" class="btn waves-effect waves-light btn-info btn-outline-info">詳細內容</a>
+                                <a href="@Url.Action("Delete", new {id = item.ID})"class="btn waves-effect waves-light btn-danger btn-outline-danger"onclick="return confirm('確定要刪除此訂單嗎?')">刪除</a>
+                                @*@Html.ActionLink("Details", "Details", new {id = item.ID}) |
+                                @Html.ActionLink("Delete", "Delete", new {id = item.ID})*@
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+  
+
+
+
+</div>
+</div>
+</div>
