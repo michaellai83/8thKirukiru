@@ -226,6 +226,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
+    <Compile Include="Areas\Backend\Controllers\ArticlecategoriesController.cs" />
     <Compile Include="Areas\Backend\Controllers\ArticleNormalsController.cs" />
     <Compile Include="Areas\Backend\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Backend\Controllers\BackLoginController.cs" />
@@ -540,6 +541,13 @@
     <Content Include="Areas\Backend\Views\BackUserMembers\Edit.cshtml" />
     <Content Include="Areas\Backend\Views\BackUserMembers\Index.cshtml" />
     <Content Include="Areas\Backend\Views\BackUserMembers\EditPic.cshtml" />
+    <Content Include="Areas\Backend\Views\BackMember\MyProfile.cshtml" />
+    <Content Include="Areas\Backend\Views\BackMember\MyProfileEdit.cshtml" />
+    <Content Include="Areas\Backend\Views\Articlecategories\Create.cshtml" />
+    <Content Include="Areas\Backend\Views\Articlecategories\Delete.cshtml" />
+    <Content Include="Areas\Backend\Views\Articlecategories\Details.cshtml" />
+    <Content Include="Areas\Backend\Views\Articlecategories\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\Articlecategories\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\box-layout.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />

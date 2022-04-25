@@ -58,6 +58,28 @@ namespace Kiru8th.Areas.Backend.Controllers
             ViewBag.kiruCollects = kiruCollects;
             var OrderCount = db.Orderlists.Where(x => x.Issuccess == true).Count();
             ViewBag.OrderCount = OrderCount;
+            var today = DateTime.Now;
+            var yesterday = today.AddDays(-1);
+            var todayKiru = db.Articles.Where(m => m.InitDate >= yesterday && m.InitDate < today && m.IsPush == true)
+                .Count();
+            var todayNormal = db.ArticleNormals
+                .Where(m => m.InitDate >= yesterday && m.InitDate < today && m.IsPush == true).Count();
+            int todayArticlesNum = todayKiru + todayNormal;
+            ViewBag.TodayNewArtilces = todayArticlesNum;
+            var week = today.AddDays(-7);
+            var weekKiru = db.Articles.Where(m => m.InitDate >= week && m.InitDate < today && m.IsPush == true)
+                .Count();
+            var weekNormal = db.ArticleNormals
+                .Where(m => m.InitDate >= week && m.InitDate < today && m.IsPush == true).Count();
+            int weekArticlesNum = weekKiru + weekNormal;
+            var month = today.AddMonths(-1);
+            var monthKiru = db.Articles.Where(m => m.InitDate >= month && m.InitDate < today && m.IsPush == true)
+                .Count();
+            var monthNormal = db.ArticleNormals
+                .Where(m => m.InitDate >= month && m.InitDate < today && m.IsPush == true).Count();
+            int monthArticlesNum = monthKiru + monthNormal;
+            ViewBag.WeekNewArtilces = weekArticlesNum;
+            ViewBag.MonthNewArtilces = monthArticlesNum;
             return View();
         }
         public ActionResult AddNewArticle()
@@ -203,7 +225,59 @@ namespace Kiru8th.Areas.Backend.Controllers
 
         public ActionResult MyProfile()
         {
-            return View();
+            var data = GetUserData();
+            var memberData = data.Split('|');
+            var memberId = memberData[0];
+            int memberID = Convert.ToInt32(memberId);
+            var memberName = memberData[1];
+            var memberpic = memberData[2];
+            var memberList = db.Backmembers.Where(n => n.ID== memberID);
+            var Data = db.Backmembers.FirstOrDefault(x => x.ID == memberID);
+            ViewBag.Name = Data.Name;
+            ViewBag.UserName = Data.Username;
+            ViewBag.Pic = Data.Photo;
+            ViewBag.Id = memberId;
+            return View(memberList.ToList());
+        }
+        public ActionResult MyProfileEdit(int?id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Backmember backmember = db.Backmembers.Find(id);
+            if (backmember == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Name = backmember.Name;
+            ViewBag.UserName = backmember.Username;
+            return View(backmember);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult MyProfileEdit(Backmember backmember, HttpPostedFileBase Photos)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Photos != null)
+                {
+                    if (Photos.ContentType.IndexOf("image", System.StringComparison.Ordinal) == -1)
+                    {
+                        ViewBag.Message = "檔案型態錯誤";
+                        return View(backmember);
+                    }
+                    backmember.Photo = Upload.SaveUpImage(Photos);
+                    Upload.GenerateThumbnailImage(backmember.Photo, Photos.InputStream, Server.MapPath("~/images"), "S", 225, 368);
+
+                }
+                db.Entry(backmember).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Name = backmember.Name;
+                ViewBag.UserName = backmember.Username;
+                return View(backmember);
+            }
+            return View(backmember);
         }
 
         public ActionResult AddQA()

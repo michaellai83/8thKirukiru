@@ -5,9 +5,11 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using Kiru8th.Models;
+using Kiru8th.Secret;
 
 namespace Kiru8th.Areas.Backend.Controllers
 {
@@ -47,8 +49,26 @@ namespace Kiru8th.Areas.Backend.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Username,Password,Salt,Name,Email,Photo,IniDateTime")] Backmember backmember)
+        public ActionResult Create(Backmember backmember, HttpPostedFileBase Photos)
         {
+            if (Photos != null)
+            {
+                if (Photos.ContentType.IndexOf("image", System.StringComparison.Ordinal) == -1)
+                {
+                    ViewBag.Message = "檔案型態錯誤";
+                    return View(backmember);
+                }
+
+                backmember.Photo = Upload.SaveUpImage(Photos);
+                Upload.GenerateThumbnailImage(backmember.Photo, Photos.InputStream, Server.MapPath("~/images"), "S",
+                    225, 368);
+                PasswordWithSaltHasher passwordWithSalt = new PasswordWithSaltHasher();
+                HashWithSaltResult hashResultSha256 = passwordWithSalt.HashWithSalt(backmember.Password, 64, SHA256.Create());
+                backmember.Password = hashResultSha256.Digest;
+                backmember.Salt = hashResultSha256.Salt;
+                backmember.IniDateTime = DateTime.Now;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Backmembers.Add(backmember);
